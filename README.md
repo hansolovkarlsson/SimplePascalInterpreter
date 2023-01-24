@@ -1,6 +1,6 @@
 # Simple Pascal Interpreter
 
-A C# implementation of Spivak Ruslan's "Let's Build a Simple Interpreter".
+A C# implementation of Ruslan Spivak's "Let's Build a Simple Interpreter".
 Blog found here: https://ruslanspivak.com/lsbasi-part1/
 Git code found here: https://github.com/rspivak/lsbasi
 
