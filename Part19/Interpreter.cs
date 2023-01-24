@@ -65,19 +65,8 @@ namespace SPI
             return Visit(node.compound_statement);
         }
 
-        public override dynamic Visit_NodeVarDecl(NodeVarDecl node)
-        {
-            // Debug.Trace(Debug.MODULE.INTERPRETER, $"Visit_NodeVarDecl()");
-            // pass
-            return 0;
-        }
-
-        public override dynamic Visit_NodeType(NodeType node)
-        {
-            // Debug.Trace(Debug.MODULE.INTERPRETER, $"Visit_NodeType()");
-            // pass
-            return 0;
-        }
+        public override dynamic Visit_NodeVarDecl(NodeVarDecl node) { return 0; }
+        public override dynamic Visit_NodeType(NodeType node) { return 0; }
 
 
         public override dynamic Visit_NodeCompound(NodeCompound node)
@@ -93,14 +82,15 @@ namespace SPI
         public override dynamic Visit_NodeProcedureCall(NodeProcedureCall node)
         {
             string proc_name = node.proc_name;
+            ProcedureSymbol proc_symbol = node.proc_symbol!;
 
             ActivationRecord ar = new ActivationRecord(
                 name: proc_name,
                 type: ARType.PROCEDURE,
-                nesting_level: 2 // should probably be above record level + 1
+                // nesting_level: 2 // should probably be above record level + 1
+                nesting_level: proc_symbol.scope_level+1
             );
 
-            ProcedureSymbol proc_symbol = node.proc_symbol!;
 
             List<VarSymbol> formal_params = proc_symbol.formal_parms;
             List<AST> actual_params = node.actual_parms;

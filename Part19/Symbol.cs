@@ -6,9 +6,10 @@ namespace SPI
 {
     abstract class Symbol
     {
-        public string name;
-        public Symbol? type; // =null for built-in symbols
-        public string class_name;
+        public string   name;
+        public Symbol?  type; // =null for built-in symbols
+        public string   class_name;
+        public int      scope_level;
 
         //------------------------------
         public ScopedSymbolTable? scope; // addition for SourceToSource Compiler test
@@ -19,6 +20,7 @@ namespace SPI
             this.class_name = class_name;
             this.name = name;
             this.type = type; // definition of symbol
+            this.scope_level = 0;
         }
 
         public abstract string Str();

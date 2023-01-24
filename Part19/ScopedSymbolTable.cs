@@ -54,6 +54,8 @@ namespace SPI
         public void Insert(Symbol symbol)
         {
             Debug.Trace(Debug.MODULE.SYMBOLTABLE, $"Insert({symbol.Str()})");
+
+            symbol.scope_level = scope_level;
             symbols.Add(symbol.name, symbol);
 
             //------------------
