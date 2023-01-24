@@ -1,4 +1,4 @@
-# SimplePascalInterpreter
+# Simple Pascal Interpreter
 
 A C# implementation of Spivak Ruslan's "Let's Build a Simple Interpreter".
 (Found here: https://ruslanspivak.com/lsbasi-part1/)
